@@ -36,8 +36,8 @@ else if (resp == "2")
     string dataLine = sr.ReadLine();
 
     while (dataLine != null){
-        
-
+        weekOf = DateTime.Parse(dataLine.Substring(0,dataLine.IndexOf(",")));
+        Console.WriteLine("Week of {0:MMM}, {0:dd}, {0:yyyy}", weekOf);
 
         dataLine = sr.ReadLine();
     }
