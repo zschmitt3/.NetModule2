@@ -35,15 +35,73 @@ else if (resp == "2")
     DateTime weekOf;
     string weekOfString;
     string dataLine = sr.ReadLine();
+    string sleepHours;
+    string printHours;
 
     while (dataLine != null){
         weekOfString = dataLine.Substring(0,dataLine.IndexOf(","));
         weekOf = DateTime.Parse(weekOfString);
-        dataLine = dataLine.Substring(weekOfString.Length);
+        dataLine = dataLine.Substring(weekOfString.Length+1);
         Console.WriteLine("Week of {0:MMM}, {0:dd}, {0:yyyy}", weekOf);
         Console.WriteLine(" Su Mo Tu We Th Fr Sa");
         Console.WriteLine(" -- -- -- -- -- -- --");
-
+        printHours = "";
+        //I had a for loop, but I got fed up and removed it.
+            sleepHours = dataLine.Substring(0,dataLine.IndexOf("|"));
+            if (sleepHours.Length == 1){
+                printHours = printHours + "  " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }else{
+                printHours = printHours + " " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }
+            sleepHours = dataLine.Substring(0,dataLine.IndexOf("|"));
+            if (sleepHours.Length == 1){
+                printHours = printHours + "  " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }else{
+                printHours = printHours + " " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }
+            sleepHours = dataLine.Substring(0,dataLine.IndexOf("|"));
+            if (sleepHours.Length == 1){
+                printHours = printHours + "  " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }else{
+                printHours = printHours + " " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }
+            sleepHours = dataLine.Substring(0,dataLine.IndexOf("|"));
+            if (sleepHours.Length == 1){
+                printHours = printHours + "  " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }else{
+                printHours = printHours + " " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }
+            sleepHours = dataLine.Substring(0,dataLine.IndexOf("|"));
+            if (sleepHours.Length == 1){
+                printHours = printHours + "  " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }else{
+                printHours = printHours + " " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }
+            sleepHours = dataLine.Substring(0,dataLine.IndexOf("|"));
+            if (sleepHours.Length == 1){
+                printHours = printHours + "  " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }else{
+                printHours = printHours + " " + sleepHours;
+                dataLine = dataLine.Substring(sleepHours.Length+1);
+            }
+            if (dataLine.Length == 1){
+                printHours = printHours + "  " + dataLine;
+            }else{
+                printHours = printHours + " " + dataLine;
+            }
+        Console.WriteLine(printHours);
+        Console.WriteLine();
 
         dataLine = sr.ReadLine();
     }
