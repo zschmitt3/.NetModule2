@@ -32,6 +32,14 @@ if (resp == "1")
 else if (resp == "2")
 {
     StreamReader sr = new StreamReader("data.txt");
-    
+    DateTime weekOf;
+    string dataLine = sr.ReadLine();
+
+    while (dataLine != null){
+        
+
+
+        dataLine = sr.ReadLine();
+    }
 
 }
