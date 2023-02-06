@@ -33,11 +33,17 @@ else if (resp == "2")
 {
     StreamReader sr = new StreamReader("data.txt");
     DateTime weekOf;
+    string weekOfString;
     string dataLine = sr.ReadLine();
 
     while (dataLine != null){
-        weekOf = DateTime.Parse(dataLine.Substring(0,dataLine.IndexOf(",")));
+        weekOfString = dataLine.Substring(0,dataLine.IndexOf(","));
+        weekOf = DateTime.Parse(weekOfString);
+        dataLine = dataLine.Substring(weekOfString.Length);
         Console.WriteLine("Week of {0:MMM}, {0:dd}, {0:yyyy}", weekOf);
+        Console.WriteLine(" Su Mo Tu We Th Fr Sa");
+        Console.WriteLine(" -- -- -- -- -- -- --");
+
 
         dataLine = sr.ReadLine();
     }
